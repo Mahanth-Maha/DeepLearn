@@ -1,0 +1,102 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[margin=0.70in]{geometry}
+\usepackage{lipsum,mwe,abstract}
+\usepackage[T1]{fontenc} 
+\usepackage[english]{babel} 
+\usepackage{biblatex}
+% \addbibresource{ref.bib} 
+\bibliography{ref}
+
+\usepackage{fancyhdr} % Custom headers and footers
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} 
+\fancyfoot[C]{\thepage} % Page numbering for right footer
+\usepackage{lipsum}
+\setlength\parindent{0pt} 
+
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{comment}
+\usepackage{enumitem}
+\usepackage{cuted}
+\usepackage{sectsty} % Allows customizing section commands
+\allsectionsfont{\normalfont \normalsize \scshape} % Section names in small caps and normal fonts
+
+\renewenvironment{abstract} % Change how the abstract look to remove margins
+{\small
+\begin{center}
+  \bfseries \abstractname\vspace{-.5em}\vspace{0pt}
+\end{center}
+\list{}{%
+\setlength{\leftmargin}{0mm}
+\setlength{\rightmargin}{\leftmargin}%
+}
+\item\relax}
+{\endlist}
+
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt} % Change how the title looks like
+\begin{flushleft}
+  \textbf{\@title}
+  \@author \\ 
+  \@date
+\end{flushleft}\egroup
+}
+\makeatother
+
+%% ------------------------------------------------------------------- 
+
+\title{
+  \Large Optimization Techniques Report  \\
+  [10pt] 
+  }
+  \date{\today}
+  \author{Mahanth Yalla}
+  
+  \begin{document}
+
+  \twocolumn[ \maketitle ]
+  
+  % --------------- ABSTRACT
+  \begin{abstract}
+    Experimented on different optimization Techniques and findings are documented in this document.
+  \end{abstract}
+  
+  \rule{\linewidth}{0.5pt}
+  
+  % --------------- MAIN CONTENT
+  
+  % If you want to put a big figure over two columns, you can use \begin{figure*}
+  % The figure will be sent on top of the next page 
+  % \begin{figure*}   
+  %     \centering
+  %     \includegraphics[width=0.9\textwidth]{Dummy_fig.png}
+  %     \caption{Caption}
+  % \end{figure*}
+  % You can also use the following command, but it can be more tricky to place the figure exactly where you want
+  % \begin{strip}
+  %     \centering\noindent
+  %     \includegraphics[width=0.9\textwidth]{Dummy_fig.png}
+  %     \captionof{figure}{Caption}
+  % \end{strip}
+  \section{Gradient Descent}
+  Gradient descent is a way to minimize an objective function $J(\theta)$ parameterized by a model's 
+  parameters $\theta \in \mathbb{R}^d$ by updating the parameters in the opposite direction of the gradient 
+  of the objective function $ \nabla_{\theta}J(\theta)$ with respect to the parameters. The learning rate $\eta$ 
+  determines the size of the steps we take to reach a (local) minimum. In other words, we follow the direction of the slope of the surface created by the objective function downhill until we reach a valley.
+  \cite{DBLP:journals/corr/Ruder16}
+  
+  \section{Stochastic Gradient Descent}
+  
+  
+% \bibliographystyle{plain}
+\printbibliography
+
+ \end{document}
+ 
+
+
+
