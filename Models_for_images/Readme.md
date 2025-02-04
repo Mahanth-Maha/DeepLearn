@@ -12,7 +12,7 @@ Dataset used: CIFAR-10
 | MLP with 3 hidden layers | 35.79% | 20 | 64 | 1e-6 | Adam | 2 min 08 s |
 | MLP with 3 hidden layers and batch normalization | 43.23% | 10 | 64 | 1e-6 | Adam | 1 min 14 s |
 | MLP with 3 hidden layers and batch normalization | 46.54% | 20 | 64 | 1e-6 | Adam | 2 min 16 s |
-| MLP with 3 hidden layers and dropout , batch normalization | 39.53% | 20 | 64 | 1e-6 | Adam | 2 min 30 s |
+| MLP with 3 hidden layers and dropout , batch normalization | 44.90% | 20 | 64 | 1e-6 | Adam | 2 min 30 s |
 | Ensemble MLP with 3 hidden layers with batch normalization | 52.79% | 100 | 64 | 1e-6 | Adam | 11 min 33 s |
 
 ## 1. Nearest Neighbour Classifier
@@ -124,12 +124,12 @@ hyper parameters: h1 = 1024 neurons, h2 = 64, learning rate = 1e-6, epochs = 20
 FCNet3_BN_DO(
   (fc1): Linear(in_features=3072, out_features=1024, bias=True)
   (bn1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-  (relu): ReLU()
-  (dropout1): Dropout(p=0.5, inplace=False)
+  (relu1): ReLU()
+  (dropout1): Dropout(p=0.2, inplace=False)
   (fc2): Linear(in_features=1024, out_features=128, bias=True)
   (bn2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-  (relu): ReLU()
-  (dropout2): Dropout(p=0.7, inplace=False)
+  (relu2): ReLU()
+  (dropout2): Dropout(p=0.1, inplace=False)
   (fc3): Linear(in_features=128, out_features=10, bias=True)
 )
 ```
@@ -138,7 +138,7 @@ Loss vs Epochs plot :
 
 ![plot of losses](./assets/03_mlp_3_layer_BN_DO_loss_plt.png)
 
-#### **Test Accuracy: 39.53%**
+#### **Test Accuracy: 44.90%**
 
 ### 3.5. Ensemble MLP with 3 hidden layers with batch normalization 
 
@@ -154,9 +154,10 @@ Loss vs Epochs plot :
 FCNet3_BN(
   (fc1): Linear(in_features=3072, out_features=1024, bias=True)
   (bn1): BatchNorm1d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
-  (relu): ReLU()
+  (relu1): ReLU()
   (fc2): Linear(in_features=1024, out_features=128, bias=True)
   (bn2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (relu2): ReLU()
   (fc3): Linear(in_features=128, out_features=10, bias=True)
 )
 ```
